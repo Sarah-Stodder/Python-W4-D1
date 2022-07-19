@@ -19,6 +19,7 @@ class User():
 
     def __lt__(self, __o):
         return self.time_stamp < __o.time_stamp
+    
    
     
   
@@ -43,16 +44,17 @@ class Employee(User):
 #change their first name
 #change their last name
 #change their department
+    @property
     def id(self):
-        return print(self.first_name+self.last_name+self.department)
+        return self.first_name + '.' + self.last_name + '.' + self.department
 
     
     def describe(self):
-        return print(f" User's Name: {self.full_name},\nThey work in {self.department}, \nTheir clearence is {self.security_level},\nAccount created {self.time_stamp}")
+        return print(f" User's Name: {self.full_name},\nThey work in {self.department}, \nTheir clearence is {self.security_level},\nAccount created {self.time_stamp} \n{self.id}")
 
 sarah = Employee("124 fake street", 6,"Marketing","Sarah","Stodder", "sjsarahboo@gmail.com")
 sarah.describe()
-sarah.id()
+
 
 
 #child two:
@@ -66,16 +68,16 @@ class Customer(User):
         self.shipping_address = shipping_address
         self.billing_address = billing_address
         self.purchase_history = purchase_history
-
+    @property
     def id(self):
         return print(self.email + self.shipping_address)
 
     def describe(self):
-        return print(f"User: {self.full_name},\nAccount Email: {self.email}, \npurchase History: {self.purchase_history} \nShipping address: {self.shipping_address},\nBilling Address: {self.billing_address},\nAccount created: {self.time_stamp}")
+        return print(f"User: {self.full_name},\nAccount Email: {self.email}, \npurchase History: {self.purchase_history} \nShipping address: {self.shipping_address},\nBilling Address: {self.billing_address},\nAccount created: {self.time_stamp} \n{self.id}")
 
 sheldon = Customer("123 fake street",["tooth paste", "gummy worms", "soda"],"Sheldon","stodder","fake@email.com","123 fake street")
 sheldon.describe()
-sheldon.id()
+
 
 
 
